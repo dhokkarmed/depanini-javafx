@@ -1,0 +1,9 @@
+.Detailswindow {
+    -fx-background-color:#651FFF;
+    -fx-background-radius:14 14 0 0;
+}
+.Detailswindow .column-header-background{
+	-fx-background-color:#651FFF;
+	-fx-background-radius:14;
+	-fx-background-insets:0 0 10 0;
+}
