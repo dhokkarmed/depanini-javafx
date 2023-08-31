@@ -44,7 +44,7 @@ import javafx.stage.Screen;
  *
  * @author Mohamed
  */
-public class DetailsWindowController implements Initializable { 
+public class ServiceDesignController implements Initializable { 
         private DirtyWordsApi dirtyWordsApi;
 
       static String Picture;
@@ -181,7 +181,8 @@ public class DetailsWindowController implements Initializable {
 
     @FXML
     private void DeleteCategorie(ActionEvent event) {
-
+//        int id = Integer.parseInt(tfID.getText());
+//        String nom = null;
         
         
         Categorie cr = categoriesTables.getSelectionModel().getSelectedItem();

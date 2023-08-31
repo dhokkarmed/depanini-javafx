@@ -2,7 +2,6 @@
 
 <?import java.net.URL?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -17,56 +16,55 @@
         <URL value="@detailswindow.css" />
     </stylesheets>
    <children>
-      <TableView fx:id="categoriesTables" layoutX="347.99999999999994" layoutY="359.0" prefHeight="231.0" prefWidth="351.0" AnchorPane.rightAnchor="301.66666666666674" AnchorPane.topAnchor="359.0">
+      <TableView fx:id="categoriesTables" layoutX="359.0" layoutY="354.0" prefHeight="231.0" prefWidth="415.0" AnchorPane.rightAnchor="297.0" AnchorPane.topAnchor="354.0">
         <columns>
-          <TableColumn fx:id="idcol" prefWidth="75.0" text="ID" />
-          <TableColumn fx:id="nomcol" prefWidth="254.6666259765625" text="NOM" />
+          <TableColumn fx:id="idcol" prefWidth="204.00002539157867" text="ID" />
+          <TableColumn fx:id="nomcol" prefWidth="60.66670227050781" text="NOM" />
         </columns>
       </TableView>
-      <AnchorPane layoutX="175.0" prefHeight="85.0" prefWidth="826.0" style="-fx-background-color: FF884B;">
+      <AnchorPane layoutX="175.0" prefHeight="85.0" prefWidth="896.0" style="-fx-background-color: FF884B;">
          <children>
-            <Text layoutX="33.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Categorie Details" wrappingWidth="302.8033752441406">
+            <Text layoutX="33.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category Details" wrappingWidth="302.8033752441406">
                <font>
                   <Font name="Bauhaus 93" size="35.0" />
                </font>
             </Text>
          </children></AnchorPane>
-      <Label layoutX="196.0" layoutY="155.0" prefHeight="26.0" prefWidth="34.0" text="NOM:" />
-      <TextField fx:id="tfNOM" layoutX="257.0" layoutY="149.0" />
-      <Button fx:id="btnajouter" layoutX="214.0" layoutY="274.0" mnemonicParsing="false" onAction="#AddCategorie" prefHeight="32.0" prefWidth="93.0" text="ADD" />
-      <Button fx:id="btnmodifier" layoutX="349.0" layoutY="274.0" mnemonicParsing="false" onAction="#UpdateCategorie" prefHeight="32.0" prefWidth="93.0" text="UPDATE" />
-      <Button fx:id="btnsupprimer" layoutX="479.0" layoutY="274.0" mnemonicParsing="false" onAction="#DeleteCategorie" prefHeight="32.0" prefWidth="93.0" text="DELETE" />
-      <Button layoutX="631.0" layoutY="213.0" mnemonicParsing="false" onAction="#FindCategorie" prefHeight="32.0" prefWidth="129.0" text="Rechercher" />
-      <TextField fx:id="tfIDrech" layoutX="612.0" layoutY="168.0" />
+      <TextField fx:id="tfNOM" layoutX="318.0" layoutY="149.0" promptText="Name" />
+      <Button fx:id="btnajouter" layoutX="342.0" layoutY="297.0" mnemonicParsing="false" onAction="#AddCategorie" prefHeight="32.0" prefWidth="93.0" text="ADD" />
+      <Button fx:id="btnmodifier" layoutX="477.0" layoutY="297.0" mnemonicParsing="false" onAction="#UpdateCategorie" prefHeight="32.0" prefWidth="93.0" text="UPDATE" />
+      <Button fx:id="btnsupprimer" layoutX="601.0" layoutY="297.0" mnemonicParsing="false" onAction="#DeleteCategorie" prefHeight="32.0" prefWidth="93.0" text="DELETE" />
+      <Button layoutX="618.0" layoutY="197.0" mnemonicParsing="false" onAction="#FindCategorie" prefHeight="32.0" prefWidth="129.0" text="Rechercher" />
+      <TextField fx:id="tfIDrech" layoutX="612.0" layoutY="150.0" promptText="Category Name" />
       <AnchorPane prefHeight="600.0" prefWidth="177.0" style="-fx-background-color: #FC6600;">
          <children>
             <ImageView fitHeight="246.0" fitWidth="251.0" layoutX="-7.0" layoutY="59.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@logo_depannini-removebg-preview.png" />
+                  <Image url="@../../Assets/logo_depannini-removebg-preview.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="183.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="311.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@add-1-icon--flatastic-1-iconset--custom-icon-design-0.png" />
+            <Image url="@../../Assets/add-1-icon--flatastic-1-iconset--custom-icon-design-0.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="317.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="445.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@imgbin-computer-icons-button-update-button-Na9dt7CuXNp3h3MHgGdhTxz6c.jpg" />
+            <Image url="@../../Assets/imgbin-computer-icons-button-update-button-Na9dt7CuXNp3h3MHgGdhTxz6c.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="448.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="26.0" fitWidth="34.0" layoutX="576.0" layoutY="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@delete.png" />
+            <Image url="@../../Assets/delete.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="765.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="32.0" fitWidth="34.0" layoutX="765.0" layoutY="197.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@find-vector-icon-png_260845.jpg" />
+            <Image url="@../../Assets/find-vector-icon-png_260845.jpg" />
          </image>
       </ImageView>
-      <Button fx:id="categorieImage" layoutX="221.0" layoutY="220.0" mnemonicParsing="false" onMouseClicked="#uploadImage" text="Upload Image" />
+      <Button fx:id="categorieImage" layoutX="343.0" layoutY="198.0" mnemonicParsing="false" onMouseClicked="#uploadImage" text="Upload Image" />
    </children>
 </AnchorPane>

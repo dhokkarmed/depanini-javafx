@@ -4,19 +4,31 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/CategorieClientController.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/FirstWindow.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/API/Api/DirtyWordsApi.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/API/Api/dirtywords.json</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/3868514f96e401a9720c45b450265c0c.jpg</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/categorieItem.fxml</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/plomberie.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/delete.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/babysitting.png</file>
             <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/SecondWindow.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/dto/DirtyWords.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/DetailsWindowController.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/utils/MyConnection.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/DetailsWindow.fxml</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/CategorieClient.fxml</file>
             <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/ItemController.java</file>
             <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/services/CategorieCrud.java</file>
-            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/entities/Categorie.java</file>
             <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/detailswindow.css</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/add-1-icon--flatastic-1-iconset--custom-icon-design-0.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/jardinage.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/entities/Service.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/FirstWindow.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/JavaApplication2.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/electricite.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/DetailsWindowController.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/DetailsWindow.fxml</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/CategorieClient.fxml</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/imgbin-computer-icons-button-update-button-Na9dt7CuXNp3h3MHgGdhTxz6c.jpg</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/broom.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/ServiceDesign.fxml</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/find-vector-icon-png_260845.jpg</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/Assets/logo_depannini-removebg-preview.png</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/entities/Categorie.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/NetBeansProjects/JavaApplication2/src/javaapplication2/gui/ServiceDesignController.java</file>
         </group>
     </open-files>
 </project-private>
