@@ -1,19 +1,23 @@
 package javaapplication2.entities;
 
+import java.util.Date;
+
 public class Service {
     private int id;
     private String name;
     private double prix;
-    private boolean promo;
+    private Date promoStartDate; // The date when the promotion starts
+    private Date promoEndDate;   // The date when the promotion ends
     private Categorie categorie;
 
     public Service() {
     }
 
-    public Service(String name, double prix, boolean promo, Categorie categorie) {
+    public Service(String name, double prix, Date promoStartDate, Date promoEndDate, Categorie categorie) {
         this.name = name;
         this.prix = prix;
-        this.promo = promo;
+        this.promoStartDate = promoStartDate;
+        this.promoEndDate = promoEndDate;
         this.categorie = categorie;
     }
 
@@ -34,19 +38,35 @@ public class Service {
     }
 
     public double getPrix() {
-        return prix;
+        // Check if the current date is within the promotion period
+        Date currentDate = new Date();
+        if (promoStartDate != null && promoEndDate != null
+                && currentDate.after(promoStartDate) && currentDate.before(promoEndDate)) {
+            // Apply a 10% discount
+            return prix * 0.9;
+        } else {
+            return prix; // No discount
+        }
     }
 
     public void setPrix(double prix) {
         this.prix = prix;
     }
 
-    public boolean isPromo() {
-        return promo;
+    public Date getPromoStartDate() {
+        return promoStartDate;
     }
 
-    public void setPromo(boolean promo) {
-        this.promo = promo;
+    public void setPromoStartDate(Date promoStartDate) {
+        this.promoStartDate = promoStartDate;
+    }
+
+    public Date getPromoEndDate() {
+        return promoEndDate;
+    }
+
+    public void setPromoEndDate(Date promoEndDate) {
+        this.promoEndDate = promoEndDate;
     }
 
     public Categorie getCategorie() {
@@ -62,9 +82,11 @@ public class Service {
         return "Service{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", prix=" + prix +
-                ", promo=" + promo +
+                ", prix=" + getPrix() + // Use the calculated price here
+                ", promoStartDate=" + promoStartDate +
+                ", promoEndDate=" + promoEndDate +
                 ", categorie=" + categorie +
                 '}';
     }
 }
+
