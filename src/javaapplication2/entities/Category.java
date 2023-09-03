@@ -9,9 +9,9 @@ package javaapplication2.entities;
  *
  * @author Mohamed
  */
-public class Categorie {
+public class Category {
 
-    public Categorie() {
+    public Category() {
     }
 
     public int getId() {
@@ -20,19 +20,19 @@ public class Categorie {
 
     @Override
     public String toString() {
-        return "Categorie{" + "id=" + id + ", nom=" + nom + ", image=" + image + '}';
+        return "Category{" + "id=" + id + ", name=" + name + ", image=" + image + '}';
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getImage() {
@@ -43,12 +43,12 @@ public class Categorie {
         this.image = image;
     }
     private int id;
-    private String nom ;
+    private String name ;
     private String image;
 
-    public Categorie(String nom, String image) {
+    public Category(String name, String image) {
        
-        this.nom = nom;
+        this.name = name;
         this.image = image;
     }
 

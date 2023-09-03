@@ -7,7 +7,7 @@ package javaapplication2.gui;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import javaapplication2.entities.Categorie;
+import javaapplication2.entities.Category;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -28,35 +28,35 @@ import javafx.scene.layout.AnchorPane;
  */
 public class ItemController {
     @FXML
-    private Label categorieName;
+    private Label categoryName;
 
   
 
     @FXML
-    private ImageView categorieImage;
+    private ImageView categoryImage;
    
 
     @FXML
     private void click(MouseEvent mouseEvent) {
-        myListener.onClickListener(categorie);
+        myListener.onClickListener(category);
     }
 
-    private Categorie categorie;
+    private Category category;
     private MyListener myListener;
 
-    public void setData(Categorie categorie, MyListener myListener) {
-        this.categorie = categorie;
+    public void setData(Category category, MyListener myListener) {
+        this.category = category;
         this.myListener = myListener;
-        categorieName.setText(categorie.getNom());
+        categoryName.setText(category.getName());
  
          FileInputStream inputstream = null;
         try {
-            inputstream = new FileInputStream("C:\\Users\\Mohamed\\Documents\\image\\" + categorie.getImage());
+            inputstream = new FileInputStream("C:\\Users\\Mohamed\\Documents\\image\\" + category.getImage());
             Image image = new Image(inputstream, 100, 100, false, false);
-            categorieImage.setImage(image);
+            categoryImage.setImage(image);
         } catch (FileNotFoundException ex) {
             
         }
-         System.out.println("zzzz");
+     
     }
 }

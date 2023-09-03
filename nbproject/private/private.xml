@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/ServiceWindow.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/services/CategorieCrud.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/ServiceDesignController.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/DetailsWindowController.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/entities/Service.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/CategorieClient.fxml</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/SecondWindow.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/services/ServiceCrud.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/entities/Categorie.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/FirstWindow.java</file>
+            <file>file:/C:/Users/Mohamed/Documents/GitHub/depanini-javafx/src/javaapplication2/gui/ServiceDesign.fxml</file>
+        </group>
     </open-files>
 </project-private>

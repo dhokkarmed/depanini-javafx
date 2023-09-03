@@ -9,27 +9,25 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javaapplication2.entities.Categorie;
+import javaapplication2.entities.Category;
 import javaapplication2.entities.Service;
 import javaapplication2.utils.MyConnection;
 
 public class ServiceCrud {
 
-    public void ajouterService(Service service) {
-        String requete = "INSERT INTO `service`(`name`, `prix`, `promoStartDate`, `promoEndDate`, `categorie_id`) VALUES (?, ?, ?, ?, ?)";
-        try {
-            PreparedStatement pst = new MyConnection().getcnx().prepareStatement(requete);
-            pst.setString(1, service.getName());
-            pst.setDouble(2, service.getPrix());
-            pst.setDate(3, new java.sql.Date(service.getPromoStartDate().getTime()));
-            pst.setDate(4, new java.sql.Date(service.getPromoEndDate().getTime()));
-            pst.setInt(5, service.getCategorie().getId());
-            pst.executeUpdate();
-            System.out.println("Votre Service est ajouté");
-        } catch (SQLException ex) {
-            System.err.println(ex.getMessage());
-        }
+public void ajouterService(Service service) {
+    String requete = "INSERT INTO `service`(`name`, `category_id`) VALUES (?, ?)";
+    try {
+        PreparedStatement pst = new MyConnection().getcnx().prepareStatement(requete);
+        pst.setString(1, service.getName());
+        pst.setInt(2, service.getCategory().getId());
+        pst.executeUpdate();
+        System.out.println("Votre Service est ajouté");
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
     }
+}
+
 
     public List<Service> afficherServices() {
         List<Service> serviceList = new ArrayList<>();
@@ -41,14 +39,11 @@ public class ServiceCrud {
                 Service service = new Service();
                 service.setId(rs.getInt("id"));
                 service.setName(rs.getString("name"));
-                service.setPrix(rs.getDouble("prix"));
-                service.setPromoStartDate(rs.getDate("promoStartDate"));
-                service.setPromoEndDate(rs.getDate("promoEndDate"));
-                
+    
                 // You may also need to fetch the associated category from the database
-                int categoryId = rs.getInt("categorie_id");
-                Categorie categorie = getCategoryById(categoryId);
-                service.setCategorie(categorie);
+                int categoryId = rs.getInt("category_id");
+                Category category = getCategoryById(categoryId);
+                service.setCategory(category);
 
                 serviceList.add(service);
             }
@@ -58,23 +53,20 @@ public class ServiceCrud {
         return serviceList;
     }
 
-    public void modifierService(int id, String name, double prix, Date promoStartDate, Date promoEndDate, Categorie categorie) {
-        String sql = "UPDATE service SET name=?, prix=?, promoStartDate=?, promoEndDate=?, categorie_id=? WHERE id=?";
-        try {
-            PreparedStatement pst = new MyConnection().getcnx().prepareStatement(sql);
-            pst.setString(1, name);
-            pst.setDouble(2, prix);
-            pst.setDate(3, new java.sql.Date(promoStartDate.getTime()));
-            pst.setDate(4, new java.sql.Date(promoEndDate.getTime()));
-            pst.setInt(5, categorie.getId());
-            pst.setInt(6, id);
+   public void modifierService(int id, String name, Category category) {
+    String sql = "UPDATE service SET name=?, category_id=? WHERE id=?";
+    try {
+        PreparedStatement pst = new MyConnection().getcnx().prepareStatement(sql);
+        pst.setString(1, name);
+        pst.setInt(2, category.getId());  // Use 2 instead of 5
+        pst.setInt(3, id);                // Use 3 instead of 6
 
-            pst.executeUpdate();
-            System.out.println("Service modifié");
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+        pst.executeUpdate();
+        System.out.println("Service modifié");
+    } catch (SQLException ex) {
+        System.out.println(ex.getMessage());
     }
+}
 
     public void supprimerService(int id) {
         try {
@@ -88,13 +80,48 @@ public class ServiceCrud {
         }
     }
 
-    // You can implement additional methods as needed, such as searching for services, etc.
     
-    // Helper method to fetch a category by its ID
-    private Categorie getCategoryById(int categoryId) {
-        // Implement the logic to fetch a category from the database by its ID
-        // and return it as a Categorie object.
-        // You can use a similar approach as in the CategorieCrud class.
-        return null; // Replace with actual logic
+    
+   public Service chercherService(String serviceName) {
+    Service service = null;
+    try {
+        String query = "SELECT * FROM service WHERE name=?";
+        PreparedStatement pst = new MyConnection().getcnx().prepareStatement(query);
+        pst.setString(1, serviceName);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            service = new Service();
+            service.setId(rs.getInt("id"));
+            service.setName(rs.getString("name"));
+
+            // Fetch the associated category
+            int categoryId = rs.getInt("category_id");
+            Category category = getCategoryById(categoryId);
+            service.setCategory(category);
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
     }
+    return service;
+}
+
+    private Category getCategoryById(int categoryId) {
+    Category category = null;
+    try {
+        String query = "SELECT * FROM category WHERE id=?";
+        PreparedStatement pst = new MyConnection().getcnx().prepareStatement(query);
+        pst.setInt(1, categoryId);
+        ResultSet rs = pst.executeQuery();
+
+        if (rs.next()) {
+            category = new Category();
+            category.setId(rs.getInt("id"));
+            category.setName(rs.getString("name"));
+        }
+    } catch (SQLException ex) {
+        System.err.println(ex.getMessage());
+    }
+    return category;
+}
 }

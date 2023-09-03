@@ -19,8 +19,8 @@ import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javaapplication2.entities.Categorie;
-import javaapplication2.services.CategorieCrud;
+import javaapplication2.entities.Category;
+import javaapplication2.services.CategoryCrud;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -48,14 +48,14 @@ public class DetailsWindowController implements Initializable {
         private DirtyWordsApi dirtyWordsApi;
 
       static String Picture;
-    Categorie c = new Categorie();
-            CategorieCrud Ccd = new CategorieCrud();
+    Category c = new Category();
+            CategoryCrud Ccd = new CategoryCrud();
 @FXML
- TableView<Categorie> categoriesTables;
+ TableView<Category> categoriesTables;
     @FXML
-    private TableColumn<Categorie, String> nomcol;
+    private TableColumn<Category, String> nomcol;
    
-   ObservableList<Categorie> oblist = FXCollections.observableArrayList();
+   ObservableList<Category> oblist = FXCollections.observableArrayList();
     @FXML
     private TextField tfID;
     @FXML
@@ -87,7 +87,7 @@ public class DetailsWindowController implements Initializable {
 
         
         // TODO
-        List<Categorie> li = Ccd.afficherCategorie();
+        List<Category> li = Ccd.afficherCategory();
         li.forEach(e
                 -> {
             oblist.add(e);
@@ -102,7 +102,7 @@ public class DetailsWindowController implements Initializable {
     
   
     /*private void refreshTable(MouseEvent event){
-         List<Categorie> li = Ccd.afficherCategorie();
+         List<Category> li = Ccd.afficherCategory();
 
         li.forEach(e
                 -> {
@@ -128,7 +128,7 @@ public class DetailsWindowController implements Initializable {
     }*/
 
     @FXML
-    private void AddCategorie(ActionEvent event) {
+    private void AddCategory(ActionEvent event) {
         
         DirtyWordsList list = dirtyWordsApi.listOfBadWords();
    
@@ -159,9 +159,9 @@ public class DetailsWindowController implements Initializable {
         }
           
             String nom =tfNOM.getText();
-            Categorie c = new Categorie(nom, Picture);
+            Category c = new Category(nom, Picture);
            
-            Ccd.ajouterCategorie2(c);
+            Ccd.ajouterCategory2(c);
 
             categoriesTables.getItems().add(c);
         } 
@@ -169,10 +169,10 @@ public class DetailsWindowController implements Initializable {
     }
 
     @FXML
-    private void UpdateCategorie(ActionEvent event) {
+    private void UpdateCategory(ActionEvent event) {
          int id = Integer.parseInt(tfID.getText());
         String nom =tfNOM.getText();
-        Ccd.ModifierCategorie(id, nom);
+        Ccd.ModifierCategory(id, nom);
         categoriesTables.getItems().clear();
         categoriesTables();
         
@@ -180,14 +180,14 @@ public class DetailsWindowController implements Initializable {
     }
 
     @FXML
-    private void DeleteCategorie(ActionEvent event) {
+    private void DeleteCategory(ActionEvent event) {
 
         
         
-        Categorie cr = categoriesTables.getSelectionModel().getSelectedItem();
+        Category cr = categoriesTables.getSelectionModel().getSelectedItem();
         int id = cr.getId();
         System.out.print(id);
-        Ccd.SupprimerCategorie(id);
+        Ccd.SupprimerCategory(id);
         categoriesTables.getItems().clear();
         categoriesTables();
     }
@@ -236,11 +236,11 @@ public class DetailsWindowController implements Initializable {
 //        }
 
     @FXML
-    private void FindCategorie(ActionEvent event) {
+    private void FindCategory(ActionEvent event) {
        
-        Categorie c = null;
+        Category c = null;
         String nom = tfIDrech.getText();
-        c=Ccd.chercher_categorie(nom);
+        c=Ccd.chercher_category(nom);
         categoriesTables.getItems().clear();
         categoriesTables.getItems().add(c);
         

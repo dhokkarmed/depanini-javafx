@@ -10,8 +10,9 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import javaapplication2.MyListener;
-import javaapplication2.entities.Categorie;
-import javaapplication2.services.CategorieCrud;
+import javaapplication2.entities.Category;
+import javaapplication2.services.CategoryCrud;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -25,22 +26,22 @@ import javafx.scene.layout.Region;
  *
  * @author Mohamed
  */
-public class CategorieClientController implements Initializable {
+public class CategoryClientController implements Initializable {
 
     /**
      * Initializes the controller class.
      */
-    CategorieCrud fn = new CategorieCrud();
+    CategoryCrud fn = new CategoryCrud();
     private MyListener myListener;
     @FXML
     private GridPane grid;
     
     @Override 
     public void initialize(URL url, ResourceBundle rb) {
-         List<Categorie> li = fn.afficherCategorie();
+         List<Category> li = fn.afficherCategory();
          if (li.size() > 0) {
            
-            myListener = (Categorie categorie) -> {
+            myListener = (Category category) -> {
             };
         }
         int column = 0;
