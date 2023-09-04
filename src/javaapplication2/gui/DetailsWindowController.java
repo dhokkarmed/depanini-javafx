@@ -33,6 +33,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -79,7 +80,6 @@ public class DetailsWindowController implements Initializable {
     private TextField tfResult;
   @FXML
     private PieChart categoryChart;
-
  private void initializePieChart() {
     // Retrieve category names and service counts from the database
     Map<String, Integer> categoryData = Ccd.getCategoryNamesWithServiceCount();
@@ -113,14 +113,9 @@ public void initialize(URL location, ResourceBundle resources) {
 
  
      private void categoriesTables() {
-
-       
-
-        
+      
         // TODO
         List<Category> li = Ccd.afficherCategory();
-        System.out.print(li.toString());
-        
         li.forEach(e
                 -> {
             oblist.add(e);
@@ -174,17 +169,24 @@ public void initialize(URL location, ResourceBundle resources) {
         } 
         
     }
+@FXML
+private void UpdateCategory(ActionEvent event) {
+    Category selectedCategory = categoriesTables.getSelectionModel().getSelectedItem();
 
-    @FXML
-    private void UpdateCategory(ActionEvent event) {
-         int id = Integer.parseInt(tfID.getText());
-        String nom =tfNOM.getText();
-        Ccd.ModifierCategory(id, nom);
-        categoriesTables.getItems().clear();
-        categoriesTables();
-        
-        
+    Integer id = selectedCategory != null ? selectedCategory.getId() : null;
+    
+    if (id == null) {
+      Alert a = new Alert(AlertType.ERROR);
+      a.setContentText("Please select which category to update");
+      a.show();
     }
+
+    String nom = tfNOM.getText();
+    Ccd.ModifierCategory(id, nom);
+    categoriesTables.getItems().clear();
+    categoriesTables();
+}
+
 
     @FXML
     private void DeleteCategory(ActionEvent event) {
