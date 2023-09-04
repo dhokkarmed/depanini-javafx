@@ -10,7 +10,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javaapplication2.entities.Category;
 
 import javaapplication2.utils.MyConnection;
@@ -155,7 +157,28 @@ public List<String> getCategoryNames() {
     }
     return categoryNames;
 }
-
+ public Map<String, Integer> getCategoryNamesWithServiceCount() {
+        Map<String, Integer> categoryData = new HashMap<>();
+        
+        try {
+            String query = "SELECT category.name, COUNT(service.id) AS service_count " +
+                           "FROM category " +
+                           "LEFT JOIN service ON category.id = service.category_id " +
+                           "GROUP BY category.name";
+            Statement statement = new MyConnection().getcnx().createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            
+            while (rs.next()) {
+                String categoryName = rs.getString("name");
+                int serviceCount = rs.getInt("service_count");
+                categoryData.put(categoryName, serviceCount);
+            }
+        } catch (SQLException ex) {
+            System.err.println(ex.getMessage());
+        }
+        
+        return categoryData;
+    }
 }
 
 

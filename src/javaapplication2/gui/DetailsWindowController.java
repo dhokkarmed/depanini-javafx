@@ -15,6 +15,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -30,6 +31,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -45,6 +47,7 @@ import javafx.stage.Screen;
  * @author Mohamed
  */
 public class DetailsWindowController implements Initializable { 
+    
         private DirtyWordsApi dirtyWordsApi;
 
       static String Picture;
@@ -54,6 +57,8 @@ public class DetailsWindowController implements Initializable {
  TableView<Category> categoriesTables;
     @FXML
     private TableColumn<Category, String> nomcol;
+        @FXML
+    private TableColumn<Category, String> idcol;
    
    ObservableList<Category> oblist = FXCollections.observableArrayList();
     @FXML
@@ -70,16 +75,42 @@ public class DetailsWindowController implements Initializable {
     private TextField tfIDrech;
       @FXML
     private Button categorieImage;
-   
+        @FXML
+    private TextField tfResult;
+  @FXML
+    private PieChart categoryChart;
+
+ private void initializePieChart() {
+    // Retrieve category names and service counts from the database
+    Map<String, Integer> categoryData = Ccd.getCategoryNamesWithServiceCount();
+    
+    ObservableList<PieChart.Data> pieChartData = FXCollections.observableArrayList();
+    
+    // Create PieChart data from retrieved data
+    categoryData.forEach((categoryName, serviceCount) -> {
+        PieChart.Data data = new PieChart.Data(categoryName, serviceCount);
+        pieChartData.add(data);
+    });
+
+    categoryChart.setData(pieChartData);
+}
+
 
     /**
      * Initializes the controller class.
      */
-      @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        categoriesTables();
-        dirtyWordsApi = new DirtyWordsApi();
+@Override
+public void initialize(URL location, ResourceBundle resources) {
+    categoriesTables();
+    dirtyWordsApi = new DirtyWordsApi();
+    
+    try {
+        initializePieChart();  // Call the method to initialize the PieChart
+    } catch (Exception e) {
+        e.printStackTrace();  // Print the exception stack trace for debugging
     }
+}
+
  
      private void categoriesTables() {
 
@@ -88,44 +119,20 @@ public class DetailsWindowController implements Initializable {
         
         // TODO
         List<Category> li = Ccd.afficherCategory();
+        System.out.print(li.toString());
+        
         li.forEach(e
                 -> {
             oblist.add(e);
 
             
-            nomcol.setCellValueFactory(new PropertyValueFactory<>("nom"));
+            nomcol.setCellValueFactory(new PropertyValueFactory<>("name"));
+            idcol.setCellValueFactory(new PropertyValueFactory<>("id"));
         }
         );
         categoriesTables.setItems(oblist);
     }
      
-    
-  
-    /*private void refreshTable(MouseEvent event){
-         List<Category> li = Ccd.afficherCategory();
-
-        li.forEach(e
-                -> {
-            oblist.add(e);
-
-            idcol.setCellValueFactory(new PropertyValueFactory<>("Id"));
-            nomcol.setCellValueFactory(new PropertyValueFactory<>("nom"));
-            
-
-            
-
-        }
-        );
-      
-       
-       
-
-//
-        categoriesTables.setItems(oblist);
-
-        
-        
-    }*/
 
     @FXML
     private void AddCategory(ActionEvent event) {
